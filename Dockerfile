@@ -13,5 +13,5 @@ RUN wget http://apache.cp.if.ua/kafka/1.1.0/kafka_2.11-1.1.0.tgz && tar -xzf kaf
     ln -s /usr/local/kafka_2.11-1.1.0/ /usr/local/kafka
 
 COPY topic-configurator.sh /
-
+RUN chmod +x /topic-configurator.sh
 CMD /topic-configurator.sh
