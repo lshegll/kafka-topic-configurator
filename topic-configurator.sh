@@ -17,7 +17,7 @@ if [ ! -z "$TOPIC_PATTERN" ] || [ ! -z "$TOPIC_CONFIG" ]; then
   TOPICS=$(get_topics)
   for TOPIC in $TOPICS; do 
       echo "Changing retention policy for $TOPIC"
-      exec ${KAFKA_BASE_DIR}/bin/kafka-configs.sh --zookeeper ${ZK_HOST}:2181 --alter --entity-type topics --entity-name $TOPIC --add-config ${TOPIC_CONFIG}
+      ${KAFKA_BASE_DIR}/bin/kafka-configs.sh --zookeeper ${ZK_HOST}:2181 --alter --entity-type topics --entity-name $TOPIC --add-config ${TOPIC_CONFIG}
       OUT=$?
       if [ $OUT -ne 0 ]; then
         echo "Failed update config for topic $TOPIC"
